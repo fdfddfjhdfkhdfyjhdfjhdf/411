@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فرم ورود مدرن</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        
+        body {
+            background-color: #121212;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 450px;
+        }
+        
+        .login-box {
+            background-color: #1e1e1e;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .login-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45aaf2);
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .subtitle {
+            color: #aaa;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #ddd;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #2d2d2d;
+            border: 1px solid #3d3d3d;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #45aaf2;
+            box-shadow: 0 0 0 3px rgba(69, 170, 242, 0.2);
+        }
+        
+        .forgot-password {
+            display: block;
+            text-align: left;
+            margin-top: 8px;
+            font-size: 12px;
+            color: #45aaf2;
+            text-decoration: none;
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(90deg, #45aaf2, #4ecdc4);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(69, 170, 242, 0.4);
+        }
+        
+        .divider {
+            position: relative;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .divider span {
+            display: inline-block;
+            padding: 0 10px;
+            background-color: #1e1e1e;
+            position: relative;
+            z-index: 1;
+            color: #aaa;
+            font-size: 12px;
+        }
+        
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #3d3d3d;
+            z-index: 0;
+        }
+        
+        .social-login {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .social-btn i {
+            margin-left: 8px;
+            font-size: 16px;
+        }
+        
+        .social-btn.google {
+            background-color: #fff;
+            color: #333;
+        }
+        
+        .social-btn.google:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .social-btn.telegram {
+            background-color: #2aabee;
+            color: #fff;
+        }
+        
+        .social-btn.telegram:hover {
+            background-color: #2298d8;
+        }
+        
+        .register-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        .register-link a {
+            color: #45aaf2;
+            text-decoration: none;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        .stats span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .designer-credit {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #555;
+        }
+        /* انیمیشن ها */
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .login-box {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h1>خوش آمدید</h1>
+            <p class="subtitle">برای ادامه وارد حساب کاربری خود شوید:</p>
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="username">نام کاربری</label>
+                    <input type="text" id="username" placeholder="نام کاربری خود را وارد کنید">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">رمز عبور</label>
+                    <input type="password" id="password" placeholder="رمز عبور خود را وارد کنید">
+                    <a href="#" class="forgot-password">رمز عبور را فراموش کردید؟</a>
+                </div>
+
+                <button type="submit" class="login-btn">ورود به حساب</button>
+
+                <div class="divider">
+                    <span>یا</span>
+                </div>
+
+                <div class="social-login">
+                    <button type="button" class="social-btn google">
+                        <i class="fab fa-google"></i> ورود با گوگل
+                    </button>
+                    <button type="button" class="social-btn telegram">
+                        <i class="fab fa-telegram"></i> ورود با تلگرام
+                    </button>
+                </div>
+
+                <p class="register-link">حساب کاربری ندارید؟ <a href="#">ثبت نام کنید</a></p>
+            </form>
+
+            <div class="stats">
+                <span><i class="far fa-heart"></i> 293</span>
+                <span><i class="far fa-thumbs-up"></i> 269</span>
+            </div>
+        </div>
+
+        <div class="designer-credit">
+            طراحی شده توسط hassan_khosrojerdi
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                // اعتبارسنجی ساده
+                if (!username || !password) {
+                    alert('لطفاً نام کاربری و رمز عبور را وارد کنید');
+                    return;
+                }
+
+                // در اینجا می‌توانید درخواست ورود به سرور را ارسال کنید
+                console.log('ورود با:', {
+                    username,
+                    password
+                });
+
+                // شبیه‌سازی ورود موفق
+                alert('ورود با موفقیت انجام شد!');
+            });
+
+            // انیمیشن برای دکمه‌های اجتماعی
+            const socialBtns = document.querySelectorAll('.social-btn');
+            socialBtns.forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                });
+
+                btn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
